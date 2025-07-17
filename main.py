@@ -1,4 +1,5 @@
 import os
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 import warnings
 from typing import *
 from dotenv import load_dotenv
@@ -22,7 +23,7 @@ _ = load_dotenv()
 def initialize_agent(
     prompt_file,
     tools_to_use=None,
-    model_dir="/model-weights",
+    model_dir="/model_weights",
     temp_dir="temp",
     device="cuda",
     model="chatgpt-4o-latest",
@@ -121,7 +122,7 @@ if __name__ == "__main__":
     agent, tools_dict = initialize_agent(
         "medrax/docs/system_prompts.txt",
         tools_to_use=selected_tools,
-        model_dir="/model-weights",  # Change this to the path of the model weights
+        model_dir="/home/zjn/.cache/huggingface_hub/model_weights",  # Change this to the path of the model weights
         temp_dir="temp",  # Change this to the path of the temporary directory
         device="cuda",  # Change this to the device you want to use
         model="gpt-4o",  # Change this to the model you want to use, e.g. gpt-4o-mini
